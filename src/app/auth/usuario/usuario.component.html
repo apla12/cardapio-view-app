@@ -1,0 +1,95 @@
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 2em;">
+    <mat-card class="card">
+        <mat-card-header fxLayoutAlign="center center">
+            <mat-card-title>Cadastro de Usuário</mat-card-title>
+            <mat-card-subtitle>Cadastre aqui o seu acesso ao sistema</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="formGroup" >
+                <div fxFlex="100">
+                    <div fxFlex="100" class="col">
+                        <mat-form-field class="full-width">
+                            <mat-label>Nome</mat-label>
+                            <input matInput id="nome" formControlName="nome" [errorStateMatcher]="matcher">
+                            <mat-error
+                                *ngIf="formGroup.get('nome').hasError('nome') && !formGroup.get('nome').hasError('required')">
+                                Por favor, insira um nome válido
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.get('nome').hasError('required')">
+                                Nome é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <mat-label>Nome da empresa / restaurante</mat-label>
+                            <input matInput id="nomeEmpresa" formControlName="nomeEmpresa"
+                                [errorStateMatcher]="matcher">
+                            <mat-error
+                                *ngIf="formGroup.get('nomeEmpresa').hasError('nomeEmpresa') && !formGroup.get('nomeEmpresa').hasError('required')">
+                                Por favor, insira um nome válido
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.get('nomeEmpresa').hasError('required')">
+                                Nome da empresa é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <div class="inputLogin">
+                            <mat-form-field class="full-width">
+                                <mat-label>Login / Username</mat-label>
+                                <input matInput id="username" formControlName="username" [errorStateMatcher]="matcher">
+                                <mat-error *ngIf="formGroup.get('username').hasError('required')">
+                                    Username é <strong>obrigatório</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="inputLogin">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="password" placeholder="Senha" type="password"
+                                    [type]="hide ? 'password' : 'text'">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.title]="'Hide password'"
+                                    [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-hint class="ac-form-field-description">Entre 8 e 15 caracteres.</mat-hint>
+                                <mat-error *ngIf="formGroup.get('password').hasError('required')">
+                                    Campo obrigatório.
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.get('password').hasError('minlength')">
+                                    Senha com menos de 8 caracteres.
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.get('password').hasError('maxlength')">
+                                    Senha com mais de 15 caracteres.
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.get('password').hasError('pattern')">
+                                    A senha deve ter ao menos uma letra minúscula, uma maiúscula, 
+                                    um caractere especial e um número.
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="inputLogin" style="margin-top: 2em;margin-bottom: 2em;">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="passwordAgain" placeholder="Repita a senha"
+                                    type="password" [errorStateMatcher]="passwordsMatcher"
+                                    [type]="hide ? 'password' : 'text'">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.title]="'Hide password'"
+                                    [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="formGroup.hasError('passwordsNotEqual')">Senha não confere.
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="end end">
+            <button mat-raised-button class="btn btn-info pull-right" (click)="cadastrar()">Enviar</button>
+            <button mat-raised-button class="btn btn-info pull-right" routerLink="/login">Cancelar</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>

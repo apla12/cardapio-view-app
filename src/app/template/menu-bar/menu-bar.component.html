@@ -1,0 +1,47 @@
+<div style="height: 90vh;">
+  <mat-toolbar color="primary">
+    <button type="button" mat-icon-button (click)="drawer.toggle()">
+      <!--*ngIf="empresaAtual"> -->
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="safira-app-bar-spacer"></span>
+    
+    <a [matMenuTriggerFor]="menu" mat-button class="nome-usuario" fxFlexAlign="center center" style="overflow-x: hidden"
+      id="menu-nome-usuario">
+      <mat-icon>person</mat-icon>
+      <!-- {{currentLogin.user?.nome}} {{empresaAtual? '('+empresaAtual.nome+')' : null}} -->
+    </a>
+    <mat-menu #menu="matMenu">
+      <div mat-menu-item fxLayout="column" fxFlexAlign="center center">
+        <!-- {{currentLogin.user?.nome}} -->
+      </div>
+      <div mat-menu-item fxLayout="column" fxFlexAlign="center center">
+        <!-- <small>{{currentLogin.user.email}}</small> -->
+      </div>
+      <a mat-menu-item routerLink="/new-user">
+        <mat-icon>vpn_key</mat-icon>
+        <span>Alterar senha</span>
+      </a>
+      <button mat-menu-item (click)="signOut()" id="botao-sair">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #drawer class="sidenav" mode="side">
+      <!-- [opened]="empresaAtual && innerWidth > 500"> -->
+      <mat-nav-list class="no-overflow-x">
+        <!--*ngIf="empresaAtual"> -->
+        <app-menu *ngFor="let item of navItems" [item]="item"></app-menu>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="grid-container" fxflexfill>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

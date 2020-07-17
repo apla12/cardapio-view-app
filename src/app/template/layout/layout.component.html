@@ -1,0 +1,8 @@
+<app-menu-bar *ngIf="showTemplate"></app-menu-bar>
+<div class="row h-100" *ngIf="!showTemplate">
+    <div class="{{classeBody}} h-100">
+        <section class="content h-100">
+            <router-outlet></router-outlet>
+        </section>
+    </div>
+</div>

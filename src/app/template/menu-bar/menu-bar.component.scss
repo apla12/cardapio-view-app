@@ -1,0 +1,51 @@
+@import '../../../styles';
+
+.grid-container {
+  padding: 0.5em;
+  min-width: 300px;
+}
+
+.sidenav {
+  width: 300px;
+  background-color: mat-color($mat-grey, 600);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.safira-app-bar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-menu-item {
+  text-align: center;
+}
+
+ngx-avatar {
+  cursor: pointer;
+}
+
+.no-overflow-x {
+  overflow-x: hidden !important;
+}
+
+.sesi-logo {
+  width: 51px;
+}
+
+.senai-logo {
+  width: 64px;
+}
+
+.nome-usuario {
+  color: white;
+  font-size: 0.9em;
+  cursor: pointer;
+}

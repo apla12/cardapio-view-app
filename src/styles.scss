@@ -1,0 +1,190 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*/
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$md-cnipallete: (
+  50 : #e0edf6,
+  100 : #b3d3e9,
+  200 : #80b5db,
+  300 : #4d97cd,
+  400 : #2681c2,
+  500 : #212837,
+  600 : #0063b0,
+  700 : #0058a7,
+  800 : #004e9f,
+  900 : #003c90,
+  A100 : #bcd2ff,
+  A200 : #89b1ff,
+  A400 : #568fff,
+  A700 : #3c7eff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+$project-primary: mat-palette($md-cnipallete);
+$project-accent: mat-palette($mat-amber, 400, 300, 100);
+
+// The warn palette is optional (defaults to red).
+$project-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$project-theme: mat-light-theme($project-primary, $project-accent, $project-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($project-theme);
+
+section.content, .content-header {
+  padding: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.error-field {
+  box-shadow: 0 0 5px #C72558;
+  border: 1px solid #C72558;
+}
+
+.success-field {
+  box-shadow: 0 0 5px #01DC00;
+  border: 1px solid #01DC00;
+}
+
+.success-snackbar {
+  background-color: #00a65a;
+  color: white;
+}
+
+.failure-snackbar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.warning-snackbar {
+  background-color: #feb204;
+  color: white;
+}
+
+.warning-snackbar button {
+  color: lightcyan;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.width-95{
+  width: 95%;
+}
+
+.button-group {
+  a,
+  button {
+    margin-right: 8px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration-color: mat-color($project-primary);
+  color: mat-color($project-primary);
+}
+
+.botao-cadastro {
+  color: white;background-color: #00a65a;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    padding: 0 0.1em;
+  }
+}
+
+a{
+  text-decoration: none!important;
+}
+
+@media(min-width: 768px){
+  .h-100{
+    height: 100%!important;
+  }
+}
+
+.mat-header-cell{
+  font-size: 13px;
+  text-align: center !important;
+}
+
+.alinhamento-valor-monetario{
+  text-align: right;
+}
+
+.alinhamento-valor-normal{
+  text-align: center;
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+.file-input span{
+  max-width: 100%;
+  word-break: break-all;
+}
+

@@ -1,0 +1,42 @@
+@import '../../../styles';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  .mat-list-item.active {
+    background-color: mat-color($project-primary, 400);
+  }
+  &:hover,
+  &:focus {
+    >.mat-list-item:not(.expanded) {
+      background-color: mat-color($project-primary) !important;
+    }
+  }
+}
+
+.sub-menu-item_0{
+  background-color: mat-color($mat-grey, 700);
+
+  .mat-list-item{
+    font-size: 14px;
+  }
+}
+
+.sub-menu-item_1{
+  background-color: mat-color($mat-grey, 800);
+
+  .mat-list-item{
+    font-size: 14px;
+  }
+}
+
+.mat-list-item {
+  color: #FFFFFF;
+  .routeIcon {
+    margin-right: 40px;
+  }
+}
+

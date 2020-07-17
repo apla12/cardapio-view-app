@@ -1,0 +1,25 @@
+mat-card{
+    width: 80%;
+  }
+
+  mat-card-title,
+  mat-card-subtitle {
+    width: 100%;
+    text-align: center;
+  }
+
+  .inputLogin{
+    min-width: 100px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .col {
+    padding-right: 20px;
+  }
+
+  .full-width{
+    width: 48%;
+    margin-bottom: 1em;
+    margin-right: 10px;
+  }

@@ -1,0 +1,67 @@
+<div fxFlexFill fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="70" fxFlex.gt-xs="100" class="coluna1">
+        <img src="assets/img/menu.png" alt="principal">
+    </div>
+    <div fxFlex="30">
+        <mat-card fxLayout="column" fxLayoutAlign="start center" fxFlex="100">
+
+            <mat-card-header>
+                <mat-card-title>
+                    <h1 class="box-title p-title">Login</h1>
+                </mat-card-title>
+                <mat-card-subtitle><strong>Uma frase qualquer</strong></mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content class="card-content" fxLayout="column">
+                <form class="form" [formGroup]="loginForm" fxLayout="column" (ngSubmit)="login()">
+                    <mat-form-field class="full-width">
+                        <mat-label>Usuário</mat-label>
+                        <input matInput id="username" formControlName="username" required>
+                        <button mat-icon-button type="button" matSuffix [attr.aria-pressed]="hide"
+                            class="button-sem-clicker">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                        <mat-error
+                            *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('username').hasError('erroUsername')">
+                            {{loginForm.get('username')?.getError('erroUsername')}}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" style="margin-top: 1em;">
+                        <mat-label>Senha</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'"
+                            formControlName="password" required id="senha">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.title]="'Hide password'"
+                            [attr.aria-pressed]="hide" type="button">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                            Campo obrigatório.
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('password').hasError('erroLogin')">
+                            {{loginForm.get('password')?.getError('erroLogin')}}
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+
+            <mat-card-actions fxLayout="column" class="div-action" fxLayoutAlign="end center">
+                <button mat-raised-button color="primary" id="botaoLogin" (click)="login()"
+                    class="btn btn-info pull-right" [disabled]="loginForm.invalid">
+                    Entrar
+                </button>
+            </mat-card-actions>
+
+            <div class="align-bottom">
+                <small>
+                    <a routerLink="/usuario/senha/recuperar" style="font-size: 13px;" id="esqueci-senha">Esqueci minha
+                        senha</a>
+                    | <a routerLink="/usuario/new" id="novo-cadastro">Novo cadastro</a>
+                </small>
+            </div>
+        </mat-card>
+    </div>
+</div>
